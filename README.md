@@ -18,5 +18,8 @@ https://www.postgresql.org/docs/10/libpq-pgpass.html
 
 After that you can simply run the python file to run the shell script.
 
+CURRENT UPDATES:
 
-I did not utilize the Dockerfile so that might not updated yet. 
+1. I did not utilize the Dockerfile so that might not updated yet. 
+2. Need to add checks to buckets so that when it is not created, it can be automatically created for the servers/ databases
+3. Code a way to list all needed databases under the server, make them into a dictionary simply based on the host, user and bucket and then do the same functions.
