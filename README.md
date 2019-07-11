@@ -1,29 +1,22 @@
-# rds-s3-database-backup
+# multi rds-s3-database-backup
 
 This script allows uploading gzipped rds postgres backups to amazon s3.
 Database credentials are retrieved from aws parameter store.
 
 
-## environment variables
+I have changed many of the files here so that you can run more than just one database connection at once using the same sh file by iterating through the json file.
+However, please do the following as well:
 
-`ENVIRONMENT` allows tagging different environments, we use `prod` and
-`dev` as possible values.
+1. Environment Configured for the AWS User
+./aws/config and ./aws/credentials
 
-`IDENTIFIER` is a database identifier, e.g. `db`. The identifier is
-used for querying configuration options and for naming the result in s3.
+2. Postgres password file to bypass the need to keep on entering passwords
+~/.pgpass → chmod 600
+Format: hostname:port:database:username:password
+https://www.postgresql.org/docs/10/libpq-pgpass.html
 
-`REGION` is the aws region to operate in.
 
-## parameter store keys
+After that you can simply run the python file to run the shell script.
 
-- `/$ENVIRONMENT/cron/backup/$IDENTIFIER/host`: database host name
-- `/$ENVIRONMENT/cron/backup/$IDENTIFIER/name`: database name
-- `/$ENVIRONMENT/cron/backup/$IDENTIFIER/user`: database user name
-- `/$ENVIRONMENT/cron/backup/$IDENTIFIER/password`: database password
-- `/$ENVIRONMENT/cron/backup/$IDENTIFIER/bucket`: target s3 bucket
 
-## output
-
-After completion, the script creates a gzipped backup in the target s3
-bucket named `$IDENTIFIER-YYYY-MM-DD.sql.gz`. All backups are stored in
-`STANDARD_IA` storage class.
+I did not utilize the Dockerfile so that might not updated yet. 

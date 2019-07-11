@@ -1,0 +1,9 @@
+{
+    "fakeserver":
+    {
+        "database-host" : "fake.fake.rds.amazonaws.com",
+        "database-name" : "fakedata",
+        "database-user" : "fakeuser",
+        "s3-bucket" : "fakebucket"
+    }
+}
