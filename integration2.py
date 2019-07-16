@@ -51,17 +51,21 @@ for db in dbs:
 
     databases = store_query('listing databases', 'SELECT * FROM pg_database')
     database_names = list(map(lambda x: x[0], databases))
+    print(database_names)
 
     for database_name in database_names:
         if database_name.lower() not in ['postgres', 'rdsadmin', 'template1', 'template0']:
+            print("Accessing", database_name, "...")
 
-            table_query = "SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'"
+            table_query = "SELECT table_name FROM information_schema.tables WHERE table_schema='public' AND table_type='BASE TABLE'"
             tables = store_query('listing tables', table_query)
+            print(tables)
             table_names = list(map(lambda x: x[0], tables))
+            print(table_names)
 
             for table_name in table_names:
 
-                export_query = "SELECT * FROM " + table_name
+                export_query = "COPY " + table_name + " TO STDOUT WITH CSV HEADER"
 
-                with open("/mnt/results/month/table.csv", "w") as file:
+                with open("table.csv", "w") as file:
                     cur.copy_expert(export_query, file)

@@ -30,13 +30,24 @@ if [[ -z "${S3_BUCKET}" ]]; then
 fi
 echo s3-bucket:${S3_BUCKET}
 
-psql \
-    -h companya.cxayn7ywcuuz.ap-southeast-1.rds.amazonaws.com \
-    -p 5432 \
-    -d companyaworkers \
-    -U jin -c \
-    "\copy workers from STDIN
-    with delimiter as ','" \ | \
-
+psql\ 
+-h companya.cxayn7ywcuuz.ap-southeast-1.rds.amazonaws.com \
+-p 5432 \
+-d companyaworkers \
+-U jin -c \
+"\copy workers from STDIN with delimiter as ','" | \
 aws s3 cp --sse aws:kms - s3://mixedintegration/companya/companyaworkers/workers.csv
+
+echo Done
+
+
+
+psql-h companya.cxayn7ywcuuz.ap-southeast-1.rds.amazonaws.com \
+-p 5432 \
+-d companyaworkers \
+-U jin \
+--csv
+-c "\copy workers from STDIN with delimiter as ','"\
+ | aws s3 cp --sse aws:kms - s3://mixedintegration/companya/companyaworkers/workers.csv
+
 
