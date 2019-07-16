@@ -10,25 +10,19 @@ However, please do the following as well (especially if you are running this loc
 </p>
 
 <ol>
-<li> Environment Configured for the AWS User
-
-./aws/config and ./aws/credentials - configure them the same as AWS website asked you.
-
+<li> Environment Configured for the AWS User  
+./aws/config and ./aws/credentials - configure them the same as AWS website asked you.  
 Ensure that you have the correct permissions tagged to this user as well, primarily S3 and RDS access. </li>
 
-<li> Postgres password file to bypass the need to keep on entering passwords
-
-~/.pgpass → chmod 600
-
-Format: hostname:port:database:username:password
-
-https://www.postgresql.org/docs/10/libpq-pgpass.html
-
+<li> Postgres password file to bypass the need to keep on entering passwords  
+~/.pgpass → chmod 600  
+Format: hostname:port:database:username:password  
+https://www.postgresql.org/docs/10/libpq-pgpass.html  
 If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password
 
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store. </li>
 
-<li> 3. Maintain the JSON file as per given in the example.json: Change the values with 'fake' in its name. </li>
+<li> Maintain the JSON file as per given in the example.json: Change the values with 'fake' in its name. </li>
 </ol>
 
 <p>
@@ -43,7 +37,7 @@ I have created another way using Boto3 and Psycopg2, which now does not require 
 </p>
 
 <ol>
-<li> 1. Please install Boto3 and Psycopg2 as per instructed in the requirements.txt using pip install -r requirements.txt </li>
+<li> Please install Boto3 and Psycopg2 as per instructed in the requirements.txt using pip install -r requirements.txt </li>
 </ol>
 
 
