@@ -30,16 +30,13 @@ if [[ -z "${S3_BUCKET}" ]]; then
 fi
 echo s3-bucket:${S3_BUCKET}
 
+psql \
+    -h companya.cxayn7ywcuuz.ap-southeast-1.rds.amazonaws.com \
+    -p 5432 \
+    -d companyaworkers \
+    -U jin -c \
+    "\copy workers from STDIN
+    with delimiter as ','" \ | \
 
-# DATE=$(date "+%Y-%m-%d") we should only use this function once we decided to version / timestamp our update
-TARGET=s3://${S3_BUCKET}/${IDENTIFIER}/${DATABASE_NAME}.sql
-
-echo Backing up ${DATABASE_HOST}/${DATABASE_NAME} to ${TARGET}
-
-pg_dump -v -a -h ${DATABASE_HOST} -U ${DATABASE_USER} -d ${DATABASE_NAME} | aws s3 cp --sse aws:kms - ${TARGET}
-rc=$?
-
-if [[ $rc != 0 ]]; then exit $rc; fi
-
-echo Done
+aws s3 cp --sse aws:kms - s3://mixedintegration/companya/companyaworkers/workers.csv
 
