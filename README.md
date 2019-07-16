@@ -5,20 +5,20 @@ This script can also be done locally as well.
 <b>Method 1: (integration.py) - Backup</b>
 </p>
 <p>
-You can run more than just one database connection at once using the same sh file by iterating through the json file. However, this can only be used to dump .sql files for backup.
+You can run more than just one database connection at once using the same sh file by iterating through the json file. However, this can only be used to dump .sql files for backup. <br \>
 However, please do the following as well (especially if you are running this locally):
 </p>
 
 <ol>
 <li> Environment Configured for the AWS User  <br \>
-./aws/config and ./aws/credentials - configure them the same as AWS website asked you.  
+./aws/config and ./aws/credentials - configure them the same as AWS website asked you.  <br \>
 Ensure that you have the correct permissions tagged to this user as well, primarily S3 and RDS access. </li>
 
-<li> Postgres password file to bypass the need to keep on entering passwords  
-~/.pgpass → chmod 600  
-Format: hostname:port:database:username:password  
-https://www.postgresql.org/docs/10/libpq-pgpass.html  
-If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password
+<li> Postgres password file to bypass the need to keep on entering passwords  <br \>
+~/.pgpass → chmod 600  <br \>
+Format: hostname:port:database:username:password  <br \>
+https://www.postgresql.org/docs/10/libpq-pgpass.html  <br \>
+If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password <br \>
 
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store. </li>
 
@@ -39,8 +39,6 @@ I have created another way using Boto3 and Psycopg2, which now does not require 
 <ol>
 <li> Please install Boto3 and Psycopg2 as per instructed in the requirements.txt using pip install -r requirements.txt </li>
 </ol>
-
-
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The dockerfile now satisfy both requirements so you can use that to spin the container needed for both scripts. Both methods can be used interchangeably for your best results. For example, you can still use method 2 so you do not have to maintain a JSON file, but at the same time you can use the shell script in method 1 to back up as a .sql file.
