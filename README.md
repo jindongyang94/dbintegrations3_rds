@@ -41,11 +41,12 @@ I have created another way using Boto3 and Psycopg2, which now does not require 
 </ol>
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The dockerfile now satisfy both requirements so you can use that to spin the container needed for both scripts. Both methods can be used interchangeably for your best results. For example, you can still use method 2 so you do not have to maintain a JSON file, but at the same time you can use the shell script in method 1 to back up as a .sql file.
+The dockerfile now satisfy both requirements so you can use that to spin the container needed for both scripts. Both methods can be used interchangeably for your best results. For example, you can still use method 2 so you do not have to maintain a JSON file, but at the same time you can use the shell script in method 1 to back up as a .sql file. However, you will to write your own commmand to change the environment variables and run the shell script.
 
-<b>CURRENT UPDATES:</b>
+<b> Method 2 is always recommended as it does not require you to maintain a list at all, but at the same time still give you flexibility to configure / filter to whatever instances/databases/ tables you want to transfer to s3 respectively. </b>
+
+<b>FUTURE CONSIDERATIONS:</b>
 
 <ol>
-
-<li>Need to add checks to buckets so that when it is not created, it can be automatically created for the servers/ databases. Right now, you still have to make sure that the bucket names exist. The name formulation is s3://{BucketName-(Data Lake)}/{CompanyName}/{ModuleName}/{TableName}.csv</li>
+<li> Possibly add more configuration options to allow better filtering etc.
 </ol>

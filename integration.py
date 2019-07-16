@@ -42,6 +42,8 @@ for key, value in creds.items():
             os.environ['DATABASE_NAME'] = database_name
             os.environ['S3_BUCKET'] = value['s3-bucket']
 
+            subprocess.call('backup.sh')
+
 
 
 
