@@ -10,7 +10,7 @@ However, please do the following as well (especially if you are running this loc
 </p>
 
 <ol>
-<li> Environment Configured for the AWS User  
+<li> Environment Configured for the AWS User  <br \>
 ./aws/config and ./aws/credentials - configure them the same as AWS website asked you.  
 Ensure that you have the correct permissions tagged to this user as well, primarily S3 and RDS access. </li>
 
