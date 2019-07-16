@@ -10,14 +10,20 @@ However, please do the following as well (especially if you are running this loc
 </p>
 
 <ol>
-<li> 1. Environment Configured for the AWS User
+<li> Environment Configured for the AWS User
+
 ./aws/config and ./aws/credentials - configure them the same as AWS website asked you.
+
 Ensure that you have the correct permissions tagged to this user as well, primarily S3 and RDS access. </li>
 
-<li> 2. Postgres password file to bypass the need to keep on entering passwords
+<li> Postgres password file to bypass the need to keep on entering passwords
+
 ~/.pgpass → chmod 600
+
 Format: hostname:port:database:username:password
+
 https://www.postgresql.org/docs/10/libpq-pgpass.html
+
 If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password
 
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store. </li>
@@ -49,5 +55,5 @@ The dockerfile now satisfy both requirements so you can use that to spin the con
 
 <ol>
 
-<li>1. Need to add checks to buckets so that when it is not created, it can be automatically created for the servers/ databases. Right now, you still have to make sure that the bucket names exist. The name formulation is s3://{BucketName-(Data Lake)}/{CompanyName}/{ModuleName}/{TableName}.csv</li>
+<li>Need to add checks to buckets so that when it is not created, it can be automatically created for the servers/ databases. Right now, you still have to make sure that the bucket names exist. The name formulation is s3://{BucketName-(Data Lake)}/{CompanyName}/{ModuleName}/{TableName}.csv</li>
 </ol>
