@@ -3,6 +3,8 @@ This script can also be done locally as well.
 
 <p>
 <b>Method 1: (integration.py) - Backup</b>
+</p>
+<p>
 You can run more than just one database connection at once using the same sh file by iterating through the json file. However, this can only be used to dump .sql files for backup.
 However, please do the following as well (especially if you are running this locally):
 </p>
@@ -29,6 +31,8 @@ After that you can simply run the python file to run the shell script.
 
 <p>
 <b>Method 2: (integration2.py) - Export</b>
+</p>
+<p>
 I have created another way using Boto3 and Psycopg2, which now does not require you to utilize a JSON file to maintain the host/ port/ user etc. However, you do have to perform the same configurations as stated above. This method also allows you to export the database to as a CSV file. You can change it however, if you want it to dump a .sql file as above as well. However, there are additional requirements due to the usage of python modules:
 </p>
 
