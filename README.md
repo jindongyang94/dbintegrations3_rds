@@ -8,7 +8,7 @@ This script can also be done locally as well.
 
 ### Method 1 - Bash Script
 
-You can run more than just one database connection at once using the same sh file by iterating through the json file. However, this can only be used to dump .sql files for backup. 
+You can run more than just one database connection at once using the same sh file by iterating through the json file. However, this can only be used to dump .sql files for backup.  
 However, please do the following as well (especially if you are running this locally):
 
 * Environment Configured for the AWS User  
@@ -17,7 +17,7 @@ However, please do the following as well (especially if you are running this loc
 Postgres password file to bypass the need to keep on entering passwords  
 ~/.pgpass → chmod 600  
 * Format: hostname:port:database:username:password  
-If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password  
+If the username and password are going to be the same for all databases/host, you can simply put "*:*:*:username:password"  
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store.
 * Maintain the JSON file as per given in the example.json: Change the values with 'fake' in its name.
 
@@ -53,7 +53,7 @@ Ensure that you have the correct permissions tagged to this user as well, primar
 ~/.pgpass → chmod 600  
 Format: hostname:port:database:username:password  
 [Reference Tutorial](https://www.postgresql.org/docs/10/libpq-pgpass.html)
-If the username and password are going to be the same for all databases/host, you can simply put *:*:*:username:password  
+If the username and password are going to be the same for all databases/host, you can simply put "*:*:*:username:password"  
 
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store.
 
