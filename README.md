@@ -31,7 +31,7 @@ You can change it however, if you want it to dump a .sql file as above as well. 
 
 * Please install Boto3 and Psycopg2 as per instructed in the requirements.txt using pip install -r requirements.txt
 
-===
+---
 
 ## Production Scripts
 
