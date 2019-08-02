@@ -17,7 +17,7 @@ However, please do the following as well (especially if you are running this loc
 Postgres password file to bypass the need to keep on entering passwords  
 ~/.pgpass → chmod 600  
 * Format: hostname:port:database:username:password  
-If the username and password are going to be the same for all databases/host, you can simply put "*amp:*:*:username:password"  
+If the username and password are going to be the same for all databases/host, you can simply put \*:*:*:username:password\  
 If you are doing this on Lambda or EC2 instance, database and user credentials can be retrieved from the aws parameter store.
 * Maintain the JSON file as per given in the example.json: Change the values with 'fake' in its name.
 
