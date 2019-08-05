@@ -208,27 +208,6 @@ def handler(event, context):
 
     # The given companies
     # correct_databases = [
-    #     "alric",
-    #     "hsc",
-    #     "bms",
-    #     "cleansolution",
-    #     "lumchang",
-    #     "firstcom",
-    #     "multiscaff",
-    #     "sante",
-    #     "tongloong",
-    #     "oas",
-    #     "sck",
-    #     "kkl",
-    #     "primestructures",
-    #     "hexacon",
-    #     "hitek",
-    #     "wohhup",
-    #     "keppelshipyard",
-    #     "greatearth",
-    #     "seiko",
-    #     "weehur",
-    #     "boustead"
     # ]
 
     # The related modules needed
